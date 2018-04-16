@@ -1,0 +1,42 @@
+{
+  "AAPL": {
+    "quote": {
+      "NOT symbol": "AAPL",
+      "companyName": "Apple Inc.",
+      "primaryExchange": "Nasdaq Global Select",
+      "sector": "Technology",
+      "calculationPrice": "tops",
+      "NOT open": 172.08,
+      "openTime": 1523453400488,
+      "NOT close": 173.25,
+      "closeTime": 1523390400193,
+      "NOT high": 173.923,
+      "NOT low": 171.7,
+      "NOT latestPrice": 173.21,
+      "latestSource": "IEX real time price",
+      "latestTime": "1:20:19 PM",
+      "latestUpdate": 1523467219040,
+      "NOT latestVolume": 12601243,
+      "iexRealtimePrice": 173.21,
+      "iexRealtimeSize": 100,
+      "iexLastUpdated": 1523467219040,
+      "delayedPrice": 173.16,
+      "delayedPriceTime": 1523466333517,
+      "previousClose": 173.25,
+      "change": -0.04,
+      "changePercent": -0.00023,
+      "iexMarketPercent": 0.03378,
+      "iexVolume": 425670,
+      "avgTotalVolume": 33742427,
+      "iexBidPrice": 173.2,
+      "iexBidSize": 100,
+      "iexAskPrice": 177.27,
+      "iexAskSize": 100,
+      "marketCap": 878869791730,
+      "peRatio": 17.8,
+      "week52High": 183.5,
+      "week52Low": 140.06,
+      "ytdChange": 0.009847837934722792
+    }
+  }
+}

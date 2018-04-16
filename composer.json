@@ -1,0 +1,28 @@
+{
+    "name": "swar8080/fast-stock-quotes",
+    "description": "Fast, free, global stock quote API wrapper and caching solution for Alpha Vantage and IEX Trading.",
+    "keywords": ["stock quote", "stock price", "stocks", "Alpha Vantage", "IEX"],
+    "homepage": "https://github.com/swar8080/FastStockQuotes",
+    "require": {
+		"predis/predis": "1.1.*",
+		"guzzlehttp/guzzle": "6.3.*"
+	},
+    "require-dev": {
+        "mockery/mockery": "^1.0",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+      "psr-4": {"FastStockQuotes\\": "src/"}
+    },
+    "autoload-dev": {
+      "psr-4": {"FastStockQuotes\\Tests\\": "tests/"}
+    },
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Steven Swartz",
+        "email": "steven.swartz44@gmail.com"
+      }
+    ]
+}
