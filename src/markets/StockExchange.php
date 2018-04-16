@@ -219,21 +219,21 @@ class StockExchange {
 			'timezone' => 'Europe/Paris',
 			'opens' => '9:00',
 			'closes' => '15:30',
-			'isUs' => false
+			'isUS' => false
 		],
 		ExchangeCodes::SHANGHAI => [
 			'name' => 'Shanghai Stock Exchange',
 			'timezone' => 'Asia/Shanghai',
 			'opens' => '9:30',
 			'closes' => '15:00',
-			'isUs' => false
+			'isUS' => false
 		],
 		ExchangeCodes::SHENZHEN => [
 			'name' => 'Shenzhen Stock Exchange',
 			'timezone' => 'Asia/Shanghai',
 			'opens' => '9:30',
 			'closes' => '15:00',
-			'isUs' => false
+			'isUS' => false
 		]
 	];
 }
