@@ -17,6 +17,8 @@ class QuoteServiceImpl implements QuoteService {
 	private $iexRequestHandler;
 	private $guzzleClient;
 
+	const AV_SECONDS_BETWEEN_CALLS = 1;
+
 	/**
 	 * QuoteService constructor.
 	 *
@@ -96,10 +98,17 @@ class QuoteServiceImpl implements QuoteService {
 		}
 
 		foreach ($nonUS as $symbol){
+
 			try {
 				$quoteUrl = $this->avRequestHandler->dailyQuoteURL($symbol->fullSymbol());
 
-				$quoteResponse = $this->guzzleClient->get($quoteUrl);
+				$quoteResponse = $this->guzzleClient->get($quoteUrl, ['on_stats' =>
+                  function($stats) {
+					  $secondsToSleepFor = max(self::AV_SECONDS_BETWEEN_CALLS - $stats->getTransferTime(), 0);
+	                  sleep( $secondsToSleepFor);
+                  }]
+				);
+
 				$quoteBody = strval($quoteResponse->getBody());
 
 				try {
