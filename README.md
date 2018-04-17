@@ -13,7 +13,7 @@ Install with the composer command: `composer require swar8080/fast-stock-quotes`
 * You can configure the number of seconds before the cached quote expires and is removed
 * If the stock exchange is closed, the quote will be cached until it re-opens
 
-The follow table shows time spent making requests (in seconds) from different sources. The biggest time savings can come from caching non-US Alpha Vantage quotes.
+The following table shows time spent making requests (in seconds) from different sources. The biggest time savings can come from caching non-US Alpha Vantage quotes.
 
 Number of Stocks | IEX  | Alpha Vantage | From Cache (redis)
 -----------------|------|---------------|-----------------
