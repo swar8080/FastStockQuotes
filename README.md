@@ -2,7 +2,7 @@
 This library provides efficient access to two free stock quote APIs: [Alpha Vantage](https://www.alphavantage.co/) and [IEX](https://iextrading.com/developer). IEX is fast but limited to US stocks only. Alpha Vantage supports most stocks in the world but requires a separate request for each quote and is limited to ~1 request per second. To make Alpha Vantage usable for a moderate number of stocks, caching using [redis](https://redis.io/) can optionally be enabled to limit API requests.
 
 # Installation
-Install with the composer command: `composer require swar8080/fast-stock-quotes`
+Install with the composer command: `composer require swar8080/fast-stock-quotes 1.0.0-beta`
 
 ## Prerequisites
 * Claim your free [Alpha Vantage API key](https://www.alphavantage.co/support/#api-key) for access to non-US quotes
