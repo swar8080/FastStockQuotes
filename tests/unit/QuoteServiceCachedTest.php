@@ -56,22 +56,42 @@ class QuoteServiceCachedTest extends TestCase {
 		]);
 
 		$quoteArgs = StockSymbol::Symbols(self::$stockSymbol);
-		$this->quoteServiceMock->shouldReceive('quotes')->with($quoteArgs)->andReturn(array());
 
+		//expectations
+		$this->quoteServiceMock->shouldReceive('quotes')->with($quoteArgs)->andReturn(array());
 		$this->quoteServiceCached->quotes($quoteArgs);
+	}
+
+	public function testShouldCacheQuoteFromService(){
+		$this->quoteCacheMock->allows([
+			'getCachedQuote' => null
+		]);
+
+		$symbol = new StockSymbol("TEST");
+		$mockQuote = Mockery::mock(FastStockQuote::class);
+		$mockQuote->allows("symbol")->andReturns($symbol->fullSymbol());
+		$mockQuote->allows("lastUpdated")->andReturns(0);
+		$this->quoteServiceMock->shouldReceive('quotes')->with(array($symbol))->andReturn([$symbol->fullSymbol() => $mockQuote]);
+
+		//expectations
+		$this->cacheRulesMock->shouldReceive('shouldCacheQuote')->andReturn(true);
+		$this->quoteCacheMock->shouldReceive('cacheQuote');
+
+		$this->quoteServiceCached->quotes(array($symbol));
 	}
 
 	public function testUsesMixOfCacheAndQuoteService(){
 		$cachedSymbol = new StockSymbol("CACHED");
 		$cachedQuote = Mockery::mock(FastStockQuote::class);
 		$cachedQuote->allows("symbol")->andReturns($cachedSymbol->fullSymbol());
-		$this->quoteCacheMock->shouldReceive('getCachedQuote')->with($cachedSymbol)->andReturn($cachedQuote);
 
-		$nonCachedSymbol= new StockSymbol("NOTCACHED");
-		$nonCachedQuote = Mockery::mock(FastStockQuote::class);
-		$cachedQuote->allows("symbol")->andReturns($nonCachedSymbol->fullSymbol());
+		$nonCachedSymbolName = "NOTCACHED";
+		$nonCachedSymbol= new StockSymbol($nonCachedSymbolName);
+
+		//behaviour expectations
+		$this->quoteCacheMock->shouldReceive('getCachedQuote')->with($cachedSymbol)->andReturn($cachedQuote);
 		$this->quoteCacheMock->shouldReceive('getCachedQuote')->with($nonCachedSymbol)->andReturn(null);
-		$this->quoteServiceMock->shouldReceive('quotes')->with(array($nonCachedSymbol))->andReturn($nonCachedQuote);
+		$this->quoteServiceMock->shouldReceive('quotes')->with(array($nonCachedSymbol))->andReturn(array());
 
 		$this->quoteServiceCached->quotes(array($cachedSymbol, $nonCachedSymbol));
 	}
