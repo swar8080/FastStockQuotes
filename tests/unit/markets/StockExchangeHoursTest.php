@@ -96,9 +96,9 @@ class StockExchangeHoursTest extends TestCase {
 		return [
 			"Weekday before open" => [self::MONDAY . " 9:29", self::MONDAY . " 9:30", null, 60*1],
 			"Weekday at open" => [self::MONDAY . " 9:30", self::MONDAY . " 9:30", null, 60*0],
-			"Weekday while open" => [self::MONDAY . " 10:30", self::TUESDAY . " 9:30", null, 60*60*23],
-			"Weekday at close" => [self::MONDAY . " 16:00", self::TUESDAY . " 9:30", null, (8+9)*60*60+60*30],
-			"Weekday after close" => [self::MONDAY . " 16:01", self::TUESDAY . " 9:30", null, (8+9)*60*60+60*29],
+			"Weekday while open" => [self::MONDAY . " 10:30", self::MONDAY . " 9:30", null, 60*60*23],
+			"Weekday at close" => [self::MONDAY . " 16:00", self::MONDAY . " 9:30", null, (8+9)*60*60+60*30],
+			"Weekday after close" => [self::MONDAY . " 16:01", self::MONDAY . " 9:30", null, (8+9)*60*60+60*29],
 			"Friday before open" => [self::FRIDAY . " 9:29", self::FRIDAY . " 9:30", self::MONDAY . " 9:30", 60],
 			"Friday at open" => [self::FRIDAY . " 9:30", self::FRIDAY . " 9:30", self::MONDAY . " 9:30", 0],
 			"Friday after open" => [self::FRIDAY . " 10:30", self::FRIDAY . " 9:30", self::MONDAY . " 9:30", (14+9)*60*60+60*60*24*2],
@@ -116,15 +116,19 @@ class StockExchangeHoursTest extends TestCase {
 	/**
 	 * @dataProvider secondsUntilOpenDataProvider
 	 *
+	 * @param $localDatetime string - the current time in the city the stock trades on
+	 * @param $todayDatetime string - the time the stock's stock exchange opened today in local timezone
+	 * @param $nextMondayOpenTime string - open time of upcoming monday in local timezone
+	 *
 	 * @throws \FastStockQuotes\exceptions\InvalidExchangeCodeException
 	 */
-	public function testSecondsUntilNextOpen($currentTimeStr, $openTimeTodayStr, $nextMondayStr, $expectedSecondsUntilOpen){
+	public function testSecondsUntilNextOpen($localDatetime, $todayOpenTime, $nextMondayOpenTime, $expectedSecondsUntilOpen){
 		$stockExchange = StockExchange::fromExchangeCode(ExchangeCodes::US);
 
 		$tz = new \DateTimeZone("America/Toronto");
-		array_push(DateTime::$mockDateTimeArguementQueue, [$currentTimeStr, $tz]);
-		array_push(DateTime::$mockDateTimeArguementQueue, [$openTimeTodayStr, $tz]);
-		array_push(DateTime::$mockDateTimeArguementQueue, [$nextMondayStr, $tz]);
+		array_push(DateTime::$mockDateTimeArguementQueue, [$localDatetime, $tz]);
+		array_push(DateTime::$mockDateTimeArguementQueue, [$todayOpenTime, $tz]);
+		array_push(DateTime::$mockDateTimeArguementQueue, [$nextMondayOpenTime, $tz]);
 
 		$actualSecondsUntilNextOpen = $stockExchange->secondsUntilNextOpen();
 		$this->assertSame($expectedSecondsUntilOpen, $actualSecondsUntilNextOpen, "seconds until next open should match");

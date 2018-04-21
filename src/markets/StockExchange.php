@@ -18,6 +18,7 @@ class StockExchange {
 	 * @throws InvalidExchangeCodeException
 	 */
 	public static function fromExchangeCode($exchangeCode){
+		$exchangeCode = strtoupper($exchangeCode);
 		if (!self::isValidExchangeCode($exchangeCode)){
 			throw new InvalidExchangeCodeException($exchangeCode);
 		}
@@ -44,11 +45,7 @@ class StockExchange {
 	 * @param $closes
 	 * @param $isUS
 	 */
-	public function __construct($code, $fullName, $timezone, $opens, $closes, $isUS ) {
-		if (!self::isValidExchangeCode($code)){
-			throw new \InvalidArgumentException("Invalid exchange code: " . $code);
-		}
-
+	private function __construct($code, $fullName, $timezone, $opens, $closes, $isUS ) {
 		$this->code     = $code;
 		$this->fullName = $fullName;
 		$this->timezone = $timezone;
