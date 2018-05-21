@@ -25,7 +25,7 @@ class StockExchange {
 
 		$e = self::Exchanges[$exchangeCode];
 
-		return new StockExchange($exchangeCode, $e['name'], $e['timezone'], $e['opens'], $e['closes'], $e['isUS']);
+		return new StockExchange($exchangeCode, $e['name'], $e['timezone'], $e['opens'], $e['closes']);
 	}
 
 	private $code;
@@ -33,7 +33,6 @@ class StockExchange {
 	private $timezone;
 	private $opens;
 	private $closes;
-	private $isUS;
 
 	/**
 	 * StockExchange constructor.
@@ -45,13 +44,12 @@ class StockExchange {
 	 * @param $closes
 	 * @param $isUS
 	 */
-	private function __construct($code, $fullName, $timezone, $opens, $closes, $isUS ) {
+	private function __construct($code, $fullName, $timezone, $opens, $closes) {
 		$this->code     = $code;
 		$this->fullName = $fullName;
 		$this->timezone = $timezone;
 		$this->opens    = $opens;
 		$this->closes   = $closes;
-		$this->isUS     = $isUS;
 	}
 
 	public function exchangeCode(){
@@ -63,7 +61,7 @@ class StockExchange {
 	}
 
 	public function isUS(){
-		return $this->isUS;
+		return $this->code == ExchangeCodes::US;
 	}
 
 	public function opens(){
@@ -151,85 +149,73 @@ class StockExchange {
 			'name' => 'NYSE/NASDAQ',
 			'timezone' => 'America/New_York',
 			'opens' => '9:30',
-			'closes' => '16:00',
-			'isUS' => true
+			'closes' => '16:00'
 		],
 		ExchangeCodes::AMSTERDAM => [
 			'name' => 'Euronext Amsterdam',
 			'timezone' => 'Europe/Amsterdam',
 			'opens' => '9:00',
-			'closes' => '17:40',
-			'isUS' => false
+			'closes' => '17:40'
 		],
 		ExchangeCodes::AUSTRALIA  => [
 			'name' => 'Australian Securities Exchange',
 			'timezone' => 'Australia/Sydney',
 			'opens' => '9:50',
-			'closes' => '16:12',
-			'isUS' => false
+			'closes' => '16:12'
 		],
 		ExchangeCodes::CANADA => [
 			'name' => 'Toronto Stock Exchange',
 			'timezone' => 'America/Toronto',
 			'opens' => '9:30',
-			'closes' => '16:00',
-			'isUS' => false
+			'closes' => '16:00'
 		],
 		ExchangeCodes::GERMANY => [
 			'name' => 'Frankfurt Stock Exchange',
 			'timezone' => 'Europe/Berlin',
 			'opens' => '8:00',
-			'closes' => '20:00',
-			'isUS' => false
+			'closes' => '20:00'
 		],
 		ExchangeCodes::HONG_KONG => [
 			'name' => 'Hong Kong Stock Exchange',
 			'timezone' => 'Asia/Hong_Kong',
 			'opens' => '9:30',
-			'closes' => '16:00',
-			'isUS' => false
+			'closes' => '16:00'
 		],
 		ExchangeCodes::JAPAN  => [
 			'name' => 'Tokyo Stock Exchange',
 			'timezone' => 'Asia/Tokyo',
 			'opens' => '9:00',
-			'closes' => '15:00',
-			'isUS' => false
+			'closes' => '15:00'
 		],
 		ExchangeCodes::LONDON  => [
 			'name'	=> 'London Stock Exchange',
 			'timezone' => 'Europe/London',
 			'opens' => '8:00',
-			'closes' => '16:30',
-			'isUS' => false
+			'closes' => '16:30'
 		],
 		ExchangeCodes::NEW_ZEALAND => [
 			'name' => 'New Zealand Stock Exchange',
 			'timezone' => 'Pacific/Auckland',
 			'opens' => '10:00',
-			'closes' => '16:45',
-			'isUS' => false
+			'closes' => '16:45'
 		],
 		ExchangeCodes::PARIS => [
 			'name' => 'Euronext Paris',
 			'timezone' => 'Europe/Paris',
 			'opens' => '9:00',
-			'closes' => '15:30',
-			'isUS' => false
+			'closes' => '15:30'
 		],
 		ExchangeCodes::SHANGHAI => [
 			'name' => 'Shanghai Stock Exchange',
 			'timezone' => 'Asia/Shanghai',
 			'opens' => '9:30',
 			'closes' => '15:00',
-			'isUS' => false
 		],
 		ExchangeCodes::SHENZHEN => [
 			'name' => 'Shenzhen Stock Exchange',
 			'timezone' => 'Asia/Shanghai',
 			'opens' => '9:30',
-			'closes' => '15:00',
-			'isUS' => false
+			'closes' => '15:00'
 		]
 	];
 }
