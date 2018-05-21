@@ -148,7 +148,6 @@ class StockExchange {
 	//hours and timezone from https://www.stockmarketclock.com/exchanges
 	const Exchanges = [
 		ExchangeCodes::US   => [
-			'symbolSuffix' => '',
 			'name' => 'NYSE/NASDAQ',
 			'timezone' => 'America/New_York',
 			'opens' => '9:30',
