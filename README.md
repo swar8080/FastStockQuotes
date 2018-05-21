@@ -1,6 +1,31 @@
 # FastStockQuotes Overview
 This library provides efficient access to two free stock quote APIs: [Alpha Vantage](https://www.alphavantage.co/) and [IEX](https://iextrading.com/developer). IEX is fast but limited to US stocks only. Alpha Vantage supports most stocks in the world but requires a separate request for each quote and is limited to ~1 request per second. To make Alpha Vantage usable for a moderate number of stocks, caching using [redis](https://redis.io/) can optionally be enabled to limit API requests.
 
+# Installation
+Install with the composer command: `composer require swar8080/fast-stock-quotes 1.0.0-beta`
+
+## Prerequisites
+* Claim your free [Alpha Vantage API key](https://www.alphavantage.co/support/#api-key) for access to non-US quotes
+* Optionally [download and run a redis server](https://redis.io/) to enable caching of stock quotes. Review the [Predis library](https://github.com/nrk/predis#connecting-to-redis) for options when connecting to your redis server from PHP. 
+
+# Stock Exchange Support
+The APIs used by this library support most stock exchanges in this world, however, they must be configured before use.
+
+Adding support for a stock exchange is easy: add its exchange code to [StockExchange.php](https://github.com/swar8080/FastStockQuotes/blob/master/src/markets/ExchangeCodes.php) and an entry to the `Exchanges` array in [StockExchange.php](https://github.com/swar8080/FastStockQuotes/blob/master/src/markets/StockExchange.php#L149). If you run into problems, feel free to open an issue on github.
+
+# Benefits of Using Caching
+* If the quote is cached, a network call to the API can be avoided
+* You can configure the number of seconds before the cached quote expires and is removed
+* If the stock exchange is closed, the quote will be cached until it re-opens
+
+The following table shows time spent making requests (in seconds) from different sources. The biggest time savings can come from caching non-US Alpha Vantage quotes.
+
+Number of Stocks | IEX  | Alpha Vantage | From Cache (redis)
+-----------------|------|---------------|-----------------
+1 Stock | 0.28 | 0.82 | 0.002
+5 Stocks | 0.35 | 1.89 | 0.003
+10 Stocks | 0.56 | 10.16 | 0.003
+
 # Demo
 ```php
 require "vendor/autoload.php";
@@ -48,28 +73,3 @@ foreach ($quotes as $symbol => $quote){
 	echo PHP_EOL;
 }
 ```
-
-# Installation
-Install with the composer command: `composer require swar8080/fast-stock-quotes 1.0.0-beta`
-
-## Prerequisites
-* Claim your free [Alpha Vantage API key](https://www.alphavantage.co/support/#api-key) for access to non-US quotes
-* Optionally [download and run a redis server](https://redis.io/) to enable caching of stock quotes. Review the [Predis library](https://github.com/nrk/predis#connecting-to-redis) for options when connecting to your redis server from PHP. 
-
-# Stock Exchange Support
-The APIs used by this library support most stock exchanges in this world, however, they must be configured before use.
-
-Adding support for a stock exchange is easy: add its exchange code to [StockExchange.php](https://github.com/swar8080/FastStockQuotes/blob/master/src/markets/ExchangeCodes.php) and an entry to the `Exchanges` array in [StockExchange.php](https://github.com/swar8080/FastStockQuotes/blob/master/src/markets/StockExchange.php#L149). If you run into problems, feel free to open an issue on github.
-
-# Benefits of Using Caching
-* If the quote is cached, a network call to the API can be avoided
-* You can configure the number of seconds before the cached quote expires and is removed
-* If the stock exchange is closed, the quote will be cached until it re-opens
-
-The following table shows time spent making requests (in seconds) from different sources. The biggest time savings can come from caching non-US Alpha Vantage quotes.
-
-Number of Stocks | IEX  | Alpha Vantage | From Cache (redis)
------------------|------|---------------|-----------------
-1 Stock | 0.28 | 0.82 | 0.002
-5 Stocks | 0.35 | 1.89 | 0.003
-10 Stocks | 0.56 | 10.16 | 0.003
