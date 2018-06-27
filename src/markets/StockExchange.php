@@ -7,7 +7,7 @@ use FastStockQuotes\utils\DateTime;
 
 class StockExchange {
 
-	public static function  isValidExchangeCode($exchangeCode){
+	public static function isValidExchangeCode($exchangeCode){
 		return array_key_exists($exchangeCode, self::Exchanges);
 	}
 
@@ -199,11 +199,17 @@ class StockExchange {
 			'opens' => '10:00',
 			'closes' => '16:45'
 		],
+		ExchangeCodes::NORWAY => [
+			'name' => 'Stockholm Stock Exchange',
+			'timezone' => 'Europe/Oslo',
+			'opens' => '9:00',
+			'closes' => '17:30'
+		],
 		ExchangeCodes::PARIS => [
 			'name' => 'Euronext Paris',
 			'timezone' => 'Europe/Paris',
 			'opens' => '9:00',
-			'closes' => '15:30'
+			'closes' => '17:30'
 		],
 		ExchangeCodes::SHANGHAI => [
 			'name' => 'Shanghai Stock Exchange',
@@ -216,6 +222,12 @@ class StockExchange {
 			'timezone' => 'Asia/Shanghai',
 			'opens' => '9:30',
 			'closes' => '15:00'
+		],
+		ExchangeCodes::STOCKHOLM => [
+			'name' => 'Stockholm Stock Exchange',
+			'timezone' => 'Europe/Stockholm',
+			'opens' => '9:00',
+			'closes' => '17:30'
 		]
 	];
 }

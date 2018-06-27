@@ -29,9 +29,11 @@ class ExchangeCodes {
 	const JAPAN = 'T';
 	const LONDON = "L";
 	const NEW_ZEALAND = "NZ";
+	const NORWAY = "OL";
 	const PARIS = "PA";
 	const SHANGHAI = "SS";
 	const SHENZHEN = "SZ";
+	const STOCKHOLM = "ST";
 	const US = '';
 
 	private function __construct() {}
