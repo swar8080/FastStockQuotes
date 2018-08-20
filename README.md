@@ -5,6 +5,7 @@ This library provides efficient access to two free stock quote APIs: [Alpha Vant
 Install with the composer command: `composer require swar8080/fast-stock-quotes`
 
 ## Prerequisites
+* PHP Version 5.6+
 * Claim your free [Alpha Vantage API key](https://www.alphavantage.co/support/#api-key) for access to non-US quotes
 * Optionally [download and run a redis server](https://redis.io/) to enable caching of stock quotes. Review the [Predis library](https://github.com/nrk/predis#connecting-to-redis) for options when connecting to your redis server from PHP. 
 
