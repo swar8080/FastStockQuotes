@@ -5,13 +5,30 @@ This library provides efficient access to two free stock quote APIs: [Alpha Vant
 Install with the composer command: `composer require swar8080/fast-stock-quotes`
 
 ## Prerequisites
+* PHP Version 5.6+
 * Claim your free [Alpha Vantage API key](https://www.alphavantage.co/support/#api-key) for access to non-US quotes
 * Optionally [download and run a redis server](https://redis.io/) to enable caching of stock quotes. Review the [Predis library](https://github.com/nrk/predis#connecting-to-redis) for options when connecting to your redis server from PHP. 
 
 # Stock Exchange Support
-The APIs used by this library support most stock exchanges in this world, however, they must be configured before use.
+The APIs used by this library support most stock exchanges in this world, however, **stock exchanges must be configured before use**. 
 
-Adding support for a stock exchange is easy: add its exchange code to [StockExchange.php](https://github.com/swar8080/FastStockQuotes/blob/master/src/markets/ExchangeCodes.php) and an entry to the `Exchanges` array in [StockExchange.php](https://github.com/swar8080/FastStockQuotes/blob/master/src/markets/StockExchange.php#L149). If you run into problems, feel free to open an issue on github.
+*Currently Configured Stock Exchanges:*
+* Australia
+* Amsterdam
+* Canada
+* Germany
+* Hong Kong
+* Tokyo
+* London
+* New Zealand
+* Norway
+* France
+* Shanghai (China)
+* Shenzhen (China)
+* Stockholm
+* United States
+
+Configuring support for a stock exchange is easy: add its exchange code to [StockExchange.php](https://github.com/swar8080/FastStockQuotes/blob/master/src/markets/ExchangeCodes.php) and an entry to the `Exchanges` array in [StockExchange.php](https://github.com/swar8080/FastStockQuotes/blob/master/src/markets/StockExchange.php#L149). If you run into problems, feel free to open an issue on github.
 
 # Benefits of Using Caching
 * If the quote is cached, a network call to the API can be avoided
