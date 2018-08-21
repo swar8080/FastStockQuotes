@@ -17,7 +17,7 @@ class QuoteCacheRules {
 	 * @return boolean
 	 */
 	public function shouldCacheQuote($lastUpdatedUnixTime, $exchange, $currentTime=null){
-		$currentTime = $currentTime ?? time();
+		$currentTime = ($currentTime)? $currentTime : time();
 		$lastCloseTime = $exchange->timestampOfLastClose();
 
 		$isCurrentTradingDayOver = $currentTime >= $lastCloseTime;
