@@ -26,7 +26,7 @@ class FastStockQuotesException extends \Exception{
 
 	private $failedSymbols;
 
-	public function __construct( $message = "", $code = 0, Throwable $previous = null, $stockSymbols=null ) {
+	public function __construct( $message = "", $code = 0, $previous = null, $stockSymbols=null ) {
 		$this->failedSymbols = $stockSymbols;
 
 		if ($stockSymbols !== null){

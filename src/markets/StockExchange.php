@@ -133,13 +133,15 @@ class StockExchange {
 			}
 			else {
 				//return yesterday's close
-				return ($closingTimeToday->sub(new \DateInterval("P1D")))->getTimestamp();
+				$yesterdayClose = $closingTimeToday->sub(new \DateInterval("P1D"));
+				return $yesterdayClose->getTimestamp();
 			}
 		}
 		else {
 			//get friday's close time
 			$daysSinceFridayInterval = "P" . strval($dayOfWeek - 5) . "D";
-			return ($closingTimeToday->sub(new \DateInterval($daysSinceFridayInterval)))->getTimestamp();
+			$fridayClose = $closingTimeToday->sub(new \DateInterval($daysSinceFridayInterval));
+			return $fridayClose->getTimestamp();
 		}
 	}
 
