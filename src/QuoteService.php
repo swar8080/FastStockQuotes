@@ -1,8 +1,8 @@
 <?php
 namespace FastStockQuotes;
 
-use FastStockQuotes\quoteAPIs\FastStockQuote;
-use FastStockQuotes\quoteAPIs\NonUSQuote;
+use FastStockQuotes\QuoteAPIs\FastStockQuote;
+use FastStockQuotes\QuoteAPIs\NonUSQuote;
 
 interface QuoteService {
 	/**

@@ -6,9 +6,9 @@
  * Time: 11:09 AM
  */
 
-namespace FastStockQuotes\exceptions;
+namespace FastStockQuotes\Exceptions;
 
-use FastStockQuotes\utils\ArrayUtils;
+use FastStockQuotes\Utils\ArrayUtils;
 
 class InvalidStockSymbolsException extends FastStockQuotesException {
 

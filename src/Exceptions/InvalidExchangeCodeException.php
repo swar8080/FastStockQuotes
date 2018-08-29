@@ -6,7 +6,7 @@
  * Time: 12:30 PM
  */
 
-namespace FastStockQuotes\exceptions;
+namespace FastStockQuotes\Exceptions;
 
 
 use Throwable;

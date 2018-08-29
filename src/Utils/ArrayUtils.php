@@ -6,7 +6,7 @@
  * Time: 11:54 PM
  */
 
-namespace FastStockQuotes\utils;
+namespace FastStockQuotes\Utils;
 
 
 class ArrayUtils {

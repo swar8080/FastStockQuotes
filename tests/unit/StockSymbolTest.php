@@ -8,7 +8,7 @@
 
 namespace FastStockQuotes\tests\unit;
 
-use FastStockQuotes\exceptions\InvalidExchangeCodeException;
+use FastStockQuotes\Exceptions\InvalidExchangeCodeException;
 use FastStockQuotes\StockSymbol;
 use PHPUnit\Framework\TestCase;
 use FastStockQuotes\Markets\ExchangeCodes as EC;

@@ -2,8 +2,8 @@
 
 namespace FastStockQuotes\Markets;
 
-use FastStockQuotes\exceptions\InvalidExchangeCodeException;
-use FastStockQuotes\utils\DateTime;
+use FastStockQuotes\Exceptions\InvalidExchangeCodeException;
+use FastStockQuotes\Utils\DateTime;
 
 class StockExchange {
 

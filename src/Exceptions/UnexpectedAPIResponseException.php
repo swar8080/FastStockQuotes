@@ -6,7 +6,7 @@
  * Time: 3:30 PM
  */
 
-namespace FastStockQuotes\exceptions;
+namespace FastStockQuotes\Exceptions;
 
 class UnexpectedAPIResponseException extends FastStockQuotesException {
 	public function __construct($message = "", $code = 0) {

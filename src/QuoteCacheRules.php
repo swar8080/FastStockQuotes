@@ -2,7 +2,7 @@
 namespace FastStockQuotes;
 
 use FastStockQuotes\Markets\StockExchange;
-use FastStockQuotes\quoteAPIs\FastStockQuote;
+use FastStockQuotes\QuoteAPIs\FastStockQuote;
 
 class QuoteCacheRules {
 	/**

@@ -8,7 +8,7 @@
 
 namespace FastStockQuotes\Tests\unit;
 
-use FastStockQuotes\quoteAPIs\FastStockQuote;
+use FastStockQuotes\QuoteAPIs\FastStockQuote;
 use FastStockQuotes\QuoteServiceCached;
 use FastStockQuotes\QuoteCacheRules;
 use FastStockQuotes\QuoteService;

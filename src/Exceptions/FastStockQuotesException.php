@@ -6,10 +6,10 @@
  * Time: 12:29 AM
  */
 
-namespace FastStockQuotes\exceptions;
+namespace FastStockQuotes\Exceptions;
 
 use Throwable;
-use FastStockQuotes\utils\ArrayUtils;
+use FastStockQuotes\Utils\ArrayUtils;
 
 class FastStockQuotesException extends \Exception{
 

@@ -6,7 +6,7 @@
  * Time: 12:14 AM
  */
 
-namespace FastStockQuotes\quoteAPIs;
+namespace FastStockQuotes\QuoteAPIs;
 
 class NonUSQuote implements FastStockQuote {
 

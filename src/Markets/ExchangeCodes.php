@@ -6,7 +6,7 @@
  * Time: 12:19 PM
  */
 
-namespace FastStockQuotes\markets;
+namespace FastStockQuotes\Markets;
 
 /**
  * Class ExchangeCodes
@@ -17,7 +17,7 @@ namespace FastStockQuotes\markets;
  * To add a new exchange, add the exchange code here
  * and add an entry to the @see{StockExchange::Exchanges} array constant.
  *
- * @package FastStockQuotes\markets
+ * @package FastStockQuotes\Markets
  */
 class ExchangeCodes {
 

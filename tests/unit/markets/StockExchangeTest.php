@@ -9,8 +9,8 @@
 namespace unit\markets;
 
 
-use FastStockQuotes\exceptions\InvalidExchangeCodeException;
-use FastStockQuotes\markets\ExchangeCodes;
+use FastStockQuotes\Exceptions\InvalidExchangeCodeException;
+use FastStockQuotes\Markets\ExchangeCodes;
 use FastStockQuotes\Markets\StockExchange;
 use PHPUnit\Framework\TestCase;
 

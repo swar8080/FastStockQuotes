@@ -1,6 +1,6 @@
 <?php
 
-namespace FastStockQuotes\utils;
+namespace FastStockQuotes\Utils;
 
 //Overrides the global DateTime class to allow mocking time
 class DateTime extends \DateTime {

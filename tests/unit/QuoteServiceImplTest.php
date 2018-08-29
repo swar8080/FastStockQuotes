@@ -8,13 +8,13 @@
 
 namespace FastStockQuotes\Tests\unit;
 
-use FastStockQuotes\exceptions\FastStockQuotesException;
-use FastStockQuotes\exceptions\InvalidStockSymbolsException;
-use FastStockQuotes\exceptions\UnsupportedStockSymbolsException;
-use FastStockQuotes\markets\ExchangeCodes;
+use FastStockQuotes\Exceptions\FastStockQuotesException;
+use FastStockQuotes\Exceptions\InvalidStockSymbolsException;
+use FastStockQuotes\Exceptions\UnsupportedStockSymbolsException;
+use FastStockQuotes\Markets\ExchangeCodes;
 use FastStockQuotes\QuoteAPIs\AlphaVantageRequestHandler;
 use FastStockQuotes\QuoteAPIs\IEXRequestHandler;
-use FastStockQuotes\quoteAPIs\USQuote;
+use FastStockQuotes\QuoteAPIs\USQuote;
 use FastStockQuotes\QuoteServiceImpl;
 use FastStockQuotes\StockSymbol;
 use GuzzleHttp\Client;

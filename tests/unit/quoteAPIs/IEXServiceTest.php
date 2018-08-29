@@ -1,8 +1,8 @@
 <?php
 namespace FastStockQuotes\tests\unit\quoteAPIs;
 
-use FastStockQuotes\exceptions\FastStockQuotesException;
-use FastStockQuotes\exceptions\UnexpectedAPIResponseException;
+use FastStockQuotes\Exceptions\FastStockQuotesException;
+use FastStockQuotes\Exceptions\UnexpectedAPIResponseException;
 use FastStockQuotes\QuoteAPIs\IEXRequestHandler;
 use PHPUnit\Framework\TestCase;
 

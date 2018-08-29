@@ -1,9 +1,9 @@
 <?php
 namespace FastStockQuotes\QuoteAPIs;
 
-use FastStockQuotes\exceptions\FastStockQuotesException;
-use FastStockQuotes\exceptions\UnexpectedAPIResponseException;
-use FastStockQuotes\utils\ArrayUtils;
+use FastStockQuotes\Exceptions\FastStockQuotesException;
+use FastStockQuotes\Exceptions\UnexpectedAPIResponseException;
+use FastStockQuotes\Utils\ArrayUtils;
 
 class AlphaVantageRequestHandler {
 

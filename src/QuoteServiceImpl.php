@@ -1,14 +1,14 @@
 <?php
 namespace FastStockQuotes;
 
-use FastStockQuotes\exceptions\InvalidStockSymbolsException;
-use FastStockQuotes\exceptions\UnexpectedAPIResponseException;
-use FastStockQuotes\exceptions\UnsupportedStockSymbolsException;
+use FastStockQuotes\Exceptions\InvalidStockSymbolsException;
+use FastStockQuotes\Exceptions\UnexpectedAPIResponseException;
+use FastStockQuotes\Exceptions\UnsupportedStockSymbolsException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\TransferException;
 
-use FastStockQuotes\utils\ArrayUtils;
-use FastStockQuotes\exceptions\FastStockQuotesException;
+use FastStockQuotes\Utils\ArrayUtils;
+use FastStockQuotes\Exceptions\FastStockQuotesException;
 use GuzzleHttp\Psr7\Response;
 use Mockery\Exception\InvalidArgumentException;
 

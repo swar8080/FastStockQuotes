@@ -2,8 +2,8 @@
 namespace FastStockQuotes\tests\unit\markets;
 
 use FastStockQuotes\Markets\StockExchange;
-use FastStockQuotes\utils\DateTime;
-use FastStockQuotes\markets\ExchangeCodes;
+use FastStockQuotes\Utils\DateTime;
+use FastStockQuotes\Markets\ExchangeCodes;
 
 use PHPUnit\Framework\TestCase;
 class StockExchangeHoursTest extends TestCase {
@@ -120,7 +120,7 @@ class StockExchangeHoursTest extends TestCase {
 	 * @param $todayDatetime string - the time the stock's stock exchange opened today in local timezone
 	 * @param $nextMondayOpenTime string - open time of upcoming monday in local timezone
 	 *
-	 * @throws \FastStockQuotes\exceptions\InvalidExchangeCodeException
+	 * @throws \FastStockQuotes\Exceptions\InvalidExchangeCodeException
 	 */
 	public function testSecondsUntilNextOpen($localDatetime, $todayOpenTime, $nextMondayOpenTime, $expectedSecondsUntilOpen){
 		$stockExchange = StockExchange::fromExchangeCode(ExchangeCodes::US);

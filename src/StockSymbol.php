@@ -1,9 +1,9 @@
 <?php
 namespace FastStockQuotes;
 
-use FastStockQuotes\exceptions\InvalidExchangeCodeException;
-use FastStockQuotes\markets\ExchangeCodes;
-use FastStockQuotes\markets\StockExchange;
+use FastStockQuotes\Exceptions\InvalidExchangeCodeException;
+use FastStockQuotes\Markets\ExchangeCodes;
+use FastStockQuotes\Markets\StockExchange;
 
 
 /**

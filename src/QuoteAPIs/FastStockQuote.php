@@ -6,7 +6,7 @@
  * Time: 2:16 PM
  */
 
-namespace FastStockQuotes\quoteAPIs;
+namespace FastStockQuotes\QuoteAPIs;
 
 
 /**
@@ -14,7 +14,7 @@ namespace FastStockQuotes\quoteAPIs;
  *
  * Methods for accessing properties of both US and Non-US quotes
  *
- * @package FastStockQuotes\quoteAPIs
+ * @package FastStockQuotes\QuoteAPIs
  */
 interface FastStockQuote {
 	/**

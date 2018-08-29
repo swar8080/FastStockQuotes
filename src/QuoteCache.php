@@ -8,7 +8,7 @@
 
 namespace FastStockQuotes;
 
-use FastStockQuotes\quoteAPIs\FastStockQuote;
+use FastStockQuotes\QuoteAPIs\FastStockQuote;
 use Predis\Client;
 
 class QuoteCache {
