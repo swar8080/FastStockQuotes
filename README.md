@@ -28,7 +28,7 @@ The APIs used by this library support most stock exchanges in this world, howeve
 * Stockholm
 * United States
 
-Configuring support for a stock exchange is easy: add its exchange code to [StockExchange.php](https://github.com/swar8080/FastStockQuotes/blob/master/src/markets/ExchangeCodes.php) and an entry to the `Exchanges` array in [StockExchange.php](https://github.com/swar8080/FastStockQuotes/blob/master/src/markets/StockExchange.php#L149). If you run into problems, feel free to open an issue on github.
+Configuring support for a stock exchange is easy: add its exchange code to [ExchangeCodes.php](https://github.com/swar8080/FastStockQuotes/blob/master/src/Markets/ExchangeCodes.php) and an entry to the `Exchanges` array in [StockExchange.php](https://github.com/swar8080/FastStockQuotes/blob/master/src/Markets/StockExchange.php#L149). If you run into problems, feel free to open an issue on github.
 
 # Benefits of Using Caching
 * If the quote is cached, a network call to the API can be avoided
